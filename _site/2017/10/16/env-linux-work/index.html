@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <meta name="keywords" content="linux" />
+        <meta name="description" content="Linux 下，个人常用环境配置" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> Linux 下工作环境配置  </title>
+        <link rel="stylesheet" href="http://localhost:4000/css/default.css" type="text/css" />
+        <link rel="stylesheet" href="http://localhost:4000/css/small.css" type="text/css" media="(max-width: 720px)"/>
+        <link rel="stylesheet" href="http://localhost:4000/css/syntax.css" type="text/css" />
+        <link rel="shortcut icon" href="http://localhost:4000/favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+
+<div class="container">
+    <div class="nav">
+    <div class="nav_nav">
+        <a class="nav_a1" href="http://localhost:4000/">首页</a>
+        <a href="http://localhost:4000/categories/">分类</a>
+        <a class="nav_a1" href="http://localhost:4000/wiki/">维基</a>
+        <a href="http://localhost:4000/links/">链接</a>
+        <a class="nav_a1" href="http://localhost:4000/about/">关于</a>
+    </div>
+    <div class="nav_rss"><a href="http://localhost:4000/sitemap.xml" style="display:none;">SITEMAP</a><a href="http://localhost:4000/feed.xml" target="_blank">订阅</a></div>
+</div>
+
+    <div class="main">
+        <h2> Linux 下工作环境配置 </h2>
+        <h1 id="zsh-配置">zsh 配置</h1>
+
+<h2 id="安装-zsh">安装 zsh</h2>
+<p>官网：<a href="https://github.com/robbyrussell/oh-my-zsh">zsh</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install zsh
+或
+sudo apt-get install zsh
+</code></pre></div></div>
+<p>设为默认 shell</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chsh -s `which zsh`
+</code></pre></div></div>
+
+<h2 id="安装-oh-my-zsh">安装 oh-my-zsh</h2>
+<p>直接从 git 上下载安装</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cd oh-my-zsh/tools
+./install.sh
+</code></pre></div></div>
+<p>或使用命令安装</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+</code></pre></div></div>
+
+<h2 id="zsh-主题设置">zsh 主题设置</h2>
+<p>在 ~/.zshrc 下设置主题，默认就好</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ZSH_THEME="robbyrussell"
+</code></pre></div></div>
+<p>安装一些其他插件，插件介绍：<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins">插件</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>目前在用的插件：
+plugins=(git autojump extract d osx z)
+</code></pre></div></div>
+
+<h1 id="vim-with-lua-安装">vim with lua 安装</h1>
+
+<h2 id="前置安装">前置安装</h2>
+
+<h3 id="yum-安装">yum 安装</h3>
+<p>yum 安装 readline 和 ncurses</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum -y install readline-devel ncurses-devel
+</code></pre></div></div>
+
+<h3 id="手动安装">手动安装</h3>
+
+<h4 id="安装-ncurses">安装 ncurses</h4>
+<p>官网：<a href="http://ftp.gnu.org/pub/gnu/ncurses/">ncurses</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.0.tar.gz
+tar -xzvf ncurses-6.0.tar.gz
+cd ncurses-6.0
+./configure
+sudo make
+sudo make install
+</code></pre></div></div>
+
+<h4 id="安装-readline">安装 readline</h4>
+<p>官网：<a href="http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html">readline</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget ftp://ftp.cwru.edu/pub/bash/readline-7.0.tar.gz
+cd readline-7.0
+./configure
+sudo make
+sudo make install
+</code></pre></div></div>
+
+<h2 id="安装-lua">安装 lua</h2>
+<p>官网：<a href="http://www.lua.org/download.html">lua</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -R -O http://www.lua.org/ftp/lua-5.3.4.tar.gz
+tar zxf lua-5.3.4.tar.gz
+cd lua-5.3.4
+make linux
+sudo make install
+</code></pre></div></div>
+
+<h2 id="安装-vim">安装 vim</h2>
+<p>官网：<a href="https://vim.sourceforge.io/download.php">vim</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+tar -xf  vim-7.4.tar.bz2
+cd vim74
+./configure --prefix=/usr --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-luainterp --with-lua-prefix=/usr/local
+sudo make
+sudo make install
+</code></pre></div></div>
+<p>查看 configure</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>at log | grep lua
+checking --enable-luainterp argument... yes
+checking --with-lua-prefix argument... /usr/local
+checking --with-luajit... no
+checking for lua... /usr/local/bin/lua
+checking if lua.h can be found in /usr/local/include... yes
+checking if link with -L/usr/local/lib -llua is sane... yes
+</code></pre></div></div>
+<p>问题</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>undefined reference to luaL_optlong
+</code></pre></div></div>
+<p>解决方法，修改vim74/src/if_lua.c</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//long pos = luaL_optlong(L, 3, 0);
+long pos = （long)luaL_optinteger(L, 3, 0);
+</code></pre></div></div>
+
+<h2 id="验证是否成功">验证是否成功</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim
+:version
+</code></pre></div></div>
+<p>有 +lua 说明安装成功</p>
+
+<h1 id="spf13-vim-安装">spf13-vim 安装</h1>
+
+<h2 id="简介">简介</h2>
+<p>官网：<a href="http://vim.spf13.com/">spf13-vim</a>
+github：<a href="http://github.com/spf13/spf13-vim">spf13-vim</a></p>
+
+<h2 id="前置">前置</h2>
+<p>TagToggle 依赖 ctags，首先要安装 ctags</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install ctags
+</code></pre></div></div>
+
+<h2 id="安装">安装</h2>
+<p>安装官网说明进行安装</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh
+</code></pre></div></div>
+
+<h1 id="安装-blade">安装 blade</h1>
+<h2 id="简介-1">简介</h2>
+<p>官网：<a href="https://github.com/chen3feng/typhoon-blade">blade</a></p>
+
+<h2 id="前置-1">前置</h2>
+<p>依赖 scons，官网：<a href="https://sourceforge.net/projects/scons/files/scons">scons</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py install
+</code></pre></div></div>
+
+<p>其他问题：<br />
+/usr/bin/ld: cannot find -lstdc++</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install libstdc++-static
+</code></pre></div></div>
+
+<h2 id="安装-1">安装</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone 
+cd typhoon-blade
+./install
+</code></pre></div></div>
+
+        
+        <div class="post_footer">
+          <p>Published on Oct 16, 2017 in categories 
+          
+          <a href="http://localhost:4000/categories/#environment" title="environment">environment</a>&nbsp;
+          
+          <p>
+        </div>
+        
+        <ul class="prev_next">
+            
+            
+            <li>
+                <span>下一篇</span>
+                <a href="/2017/10/16/env-openmpi-mpi4py/">mpy4py 环境配置</a>
+            </li>
+            
+        </ul>
+        <hr>
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+        
+
+  
+
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/2017/10/16/env-linux-work/',
+            owner: 'cyendra',
+            repo: 'cyendra.github.io',
+            oauth: {
+                client_id: '6e7518d0f1b3f3aa0829',
+                client_secret: '598238c66a1d3082d2fd61b86596e8524a5c31a5',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+</div>
+<center><p style="font-size:0.5em;">Powered by <a href="http://jekyllrb.com">Jekyll</a> and Theme by <a href="http://github.com/mzlogin/jekyll-theme-solid">solid</a></p></center>
+    </body>
+</html>
+

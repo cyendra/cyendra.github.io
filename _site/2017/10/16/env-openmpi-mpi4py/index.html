@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <meta name="keywords" content="linux, mpi4py" />
+        <meta name="description" content="在 Linux 环境安装 openMPI 和 mpy4py 的方法" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> mpy4py 环境配置  </title>
+        <link rel="stylesheet" href="http://localhost:4000/css/default.css" type="text/css" />
+        <link rel="stylesheet" href="http://localhost:4000/css/small.css" type="text/css" media="(max-width: 720px)"/>
+        <link rel="stylesheet" href="http://localhost:4000/css/syntax.css" type="text/css" />
+        <link rel="shortcut icon" href="http://localhost:4000/favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+
+<div class="container">
+    <div class="nav">
+    <div class="nav_nav">
+        <a class="nav_a1" href="http://localhost:4000/">首页</a>
+        <a href="http://localhost:4000/categories/">分类</a>
+        <a class="nav_a1" href="http://localhost:4000/wiki/">维基</a>
+        <a href="http://localhost:4000/links/">链接</a>
+        <a class="nav_a1" href="http://localhost:4000/about/">关于</a>
+    </div>
+    <div class="nav_rss"><a href="http://localhost:4000/sitemap.xml" style="display:none;">SITEMAP</a><a href="http://localhost:4000/feed.xml" target="_blank">订阅</a></div>
+</div>
+
+    <div class="main">
+        <h2> mpy4py 环境配置 </h2>
+        <h1 id="安装-open-mpi">安装 Open MPI</h1>
+<p>OpenMPI 官网：<a href="www.open-mpi.org">openmpi</a><br />
+目前最新版本为 3.0.0</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.gz
+tar -xzvf openmpi-3.0.0.tar.gz
+cd openmpi-3.0.0
+./configure --prefix=/安装目录/openmpi-3.0.0
+make all install
+</code></pre></div></div>
+<p>安装后添加环境变量</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=/安装目录/openmpi-3.0.0/bin:$PATH
+export LD_LIBRARY_PATH=/安装目录/openmpi-3.0.0/lib:$LD_LIBRARY_PATH
+</code></pre></div></div>
+
+<h1 id="安装-mpi4py">安装 mpi4py</h1>
+<p>下载 mpi4py：<a href="https://pypi.python.org/pypi/mpi4py">mpi4py</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://pypi.python.org/packages/ee/b8/f443e1de0b6495479fc73c5863b7b5272a4ece5122e3589db6cd3bb57eeb/mpi4py-2.0.0.tar.gz
+tar -xzvf mpi4py-2.0.0.tar.gz
+cd mpi4py-2.0.0
+vim mpi.cfg
+</code></pre></div></div>
+<p>修改 mpi_dir 为 openmpi 的安装目录</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Open MPI example
+# ----------------
+[openmpi]
+mpi_dir              = /安装目录/openmpi-3.0.0
+mpicc                = %(mpi_dir)s/bin/mpicc
+mpicxx               = %(mpi_dir)s/bin/mpicxx
+#include_dirs         = %(mpi_dir)s/include
+#libraries            = mpi
+library_dirs         = %(mpi_dir)s/lib
+runtime_library_dirs = %(library_dirs)s
+</code></pre></div></div>
+<p>继续安装 mpi4py</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py install
+</code></pre></div></div>
+<p>删除方法</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py install --record log
+cat log | xargs rm -rf
+</code></pre></div></div>
+
+<h1 id="验证安装是否成功">验证安装是否成功</h1>
+<p>在 python 中执行</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import mpi4py.MPI
+</code></pre></div></div>
+<p>没有报错说明安装成功</p>
+
+        
+        <div class="post_footer">
+          <p>Published on Oct 16, 2017 in categories 
+          
+          <a href="http://localhost:4000/categories/#environment" title="environment">environment</a>&nbsp;
+          
+          <p>
+        </div>
+        
+        <ul class="prev_next">
+            
+            <li>
+                <span>上一篇</span>
+                <a href="/2017/10/16/env-linux-work/">Linux 下工作环境配置</a>
+            </li>
+            
+            
+        </ul>
+        <hr>
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+        
+
+  
+
+  
+        <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+        var gitment = new Gitment({
+            id: '/2017/10/16/env-openmpi-mpi4py/',
+            owner: 'cyendra',
+            repo: 'cyendra.github.io',
+            oauth: {
+                client_id: '6e7518d0f1b3f3aa0829',
+                client_secret: '598238c66a1d3082d2fd61b86596e8524a5c31a5',
+            },
+        })
+        gitment.render('container')
+        </script>
+  
+
+
+    </div>
+</div>
+<center><p style="font-size:0.5em;">Powered by <a href="http://jekyllrb.com">Jekyll</a> and Theme by <a href="http://github.com/mzlogin/jekyll-theme-solid">solid</a></p></center>
+    </body>
+</html>
+
