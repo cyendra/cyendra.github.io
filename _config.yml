@@ -2,10 +2,10 @@
 #   Main Configs   #
 # ---------------- #
 baseurl: 
-url: http://mazhuang.org/jekyll-theme-solid
+url: https://cyendra.github.io
 date_format: "ordinal"
-title: jekyll-theme-solid
-author: Zhuang Ma 
+title: my blog
+author: cyendra
 
 # ---------------- #
 #   RSS / Email    #
