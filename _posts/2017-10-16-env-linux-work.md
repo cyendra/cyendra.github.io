@@ -47,8 +47,9 @@ plugins=(git autojump extract d osx z)
 
 ## 前置安装
 
-### 直接 yum 安装 
-```readline 和 ncurses
+### yum 安装
+yum 安装 readline 和 ncurses
+```
 yum -y install readline-devel ncurses-devel
 ```
 
