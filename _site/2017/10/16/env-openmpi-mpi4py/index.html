@@ -26,8 +26,8 @@
 </div>
 
     <div class="main">
-        <h2> mpy4py 环境配置 </h2>
-        <h1 id="安装-open-mpi">安装 Open MPI</h1>
+        <h1> mpy4py 环境配置 </h1>
+        <h2 id="安装-open-mpi">安装 Open MPI</h2>
 <p>OpenMPI 官网：<a href="www.open-mpi.org">openmpi</a><br />
 目前最新版本为 3.0.0</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.gz
@@ -41,7 +41,7 @@ make all install
 export LD_LIBRARY_PATH=/安装目录/openmpi-3.0.0/lib:$LD_LIBRARY_PATH
 </code></pre></div></div>
 
-<h1 id="安装-mpi4py">安装 mpi4py</h1>
+<h2 id="安装-mpi4py">安装 mpi4py</h2>
 <p>下载 mpi4py：<a href="https://pypi.python.org/pypi/mpi4py">mpi4py</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://pypi.python.org/packages/ee/b8/f443e1de0b6495479fc73c5863b7b5272a4ece5122e3589db6cd3bb57eeb/mpi4py-2.0.0.tar.gz
 tar -xzvf mpi4py-2.0.0.tar.gz
@@ -68,7 +68,7 @@ runtime_library_dirs = %(library_dirs)s
 cat log | xargs rm -rf
 </code></pre></div></div>
 
-<h1 id="验证安装是否成功">验证安装是否成功</h1>
+<h2 id="验证安装是否成功">验证安装是否成功</h2>
 <p>在 python 中执行</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import mpi4py.MPI
 </code></pre></div></div>

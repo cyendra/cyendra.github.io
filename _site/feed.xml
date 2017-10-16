@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-16T21:09:11+08:00</updated><id>http://localhost:4000/</id><title type="html">Blog</title><author><name>cyendra</name></author><entry><title type="html">mpy4py 环境配置</title><link href="http://localhost:4000/2017/10/16/env-openmpi-mpi4py/" rel="alternate" type="text/html" title="mpy4py 环境配置" /><published>2017-10-16T00:00:00+08:00</published><updated>2017-10-16T00:00:00+08:00</updated><id>http://localhost:4000/2017/10/16/env-openmpi-mpi4py</id><content type="html" xml:base="http://localhost:4000/2017/10/16/env-openmpi-mpi4py/">&lt;h1 id=&quot;安装-open-mpi&quot;&gt;安装 Open MPI&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-10-16T21:13:27+08:00</updated><id>http://localhost:4000/</id><title type="html">Blog</title><author><name>cyendra</name></author><entry><title type="html">mpy4py 环境配置</title><link href="http://localhost:4000/2017/10/16/env-openmpi-mpi4py/" rel="alternate" type="text/html" title="mpy4py 环境配置" /><published>2017-10-16T00:00:00+08:00</published><updated>2017-10-16T00:00:00+08:00</updated><id>http://localhost:4000/2017/10/16/env-openmpi-mpi4py</id><content type="html" xml:base="http://localhost:4000/2017/10/16/env-openmpi-mpi4py/">&lt;h2 id=&quot;安装-open-mpi&quot;&gt;安装 Open MPI&lt;/h2&gt;
 &lt;p&gt;OpenMPI 官网：&lt;a href=&quot;www.open-mpi.org&quot;&gt;openmpi&lt;/a&gt;&lt;br /&gt;
 目前最新版本为 3.0.0&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.gz
@@ -12,7 +12,7 @@ make all install
 export LD_LIBRARY_PATH=/安装目录/openmpi-3.0.0/lib:$LD_LIBRARY_PATH
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;安装-mpi4py&quot;&gt;安装 mpi4py&lt;/h1&gt;
+&lt;h2 id=&quot;安装-mpi4py&quot;&gt;安装 mpi4py&lt;/h2&gt;
 &lt;p&gt;下载 mpi4py：&lt;a href=&quot;https://pypi.python.org/pypi/mpi4py&quot;&gt;mpi4py&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://pypi.python.org/packages/ee/b8/f443e1de0b6495479fc73c5863b7b5272a4ece5122e3589db6cd3bb57eeb/mpi4py-2.0.0.tar.gz
 tar -xzvf mpi4py-2.0.0.tar.gz
@@ -39,13 +39,13 @@ runtime_library_dirs = %(library_dirs)s
 cat log | xargs rm -rf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;验证安装是否成功&quot;&gt;验证安装是否成功&lt;/h1&gt;
+&lt;h2 id=&quot;验证安装是否成功&quot;&gt;验证安装是否成功&lt;/h2&gt;
 &lt;p&gt;在 python 中执行&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import mpi4py.MPI
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;没有报错说明安装成功&lt;/p&gt;</content><author><name>cyendra</name></author><summary type="html">安装 Open MPI OpenMPI 官网：openmpi 目前最新版本为 3.0.0 wget https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.gz tar -xzvf openmpi-3.0.0.tar.gz cd openmpi-3.0.0 ./configure --prefix=/安装目录/openmpi-3.0.0 make all install 安装后添加环境变量 export PATH=/安装目录/openmpi-3.0.0/bin:$PATH export LD_LIBRARY_PATH=/安装目录/openmpi-3.0.0/lib:$LD_LIBRARY_PATH</summary></entry><entry><title type="html">Linux 下工作环境配置</title><link href="http://localhost:4000/2017/10/16/env-linux-work/" rel="alternate" type="text/html" title="Linux 下工作环境配置" /><published>2017-10-16T00:00:00+08:00</published><updated>2017-10-16T00:00:00+08:00</updated><id>http://localhost:4000/2017/10/16/env-linux-work</id><content type="html" xml:base="http://localhost:4000/2017/10/16/env-linux-work/">&lt;h1 id=&quot;zsh-配置&quot;&gt;zsh 配置&lt;/h1&gt;
+&lt;p&gt;没有报错说明安装成功&lt;/p&gt;</content><author><name>cyendra</name></author><summary type="html">安装 Open MPI OpenMPI 官网：openmpi 目前最新版本为 3.0.0 wget https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.gz tar -xzvf openmpi-3.0.0.tar.gz cd openmpi-3.0.0 ./configure --prefix=/安装目录/openmpi-3.0.0 make all install 安装后添加环境变量 export PATH=/安装目录/openmpi-3.0.0/bin:$PATH export LD_LIBRARY_PATH=/安装目录/openmpi-3.0.0/lib:$LD_LIBRARY_PATH</summary></entry><entry><title type="html">Linux 下工作环境配置</title><link href="http://localhost:4000/2017/10/16/env-linux-work/" rel="alternate" type="text/html" title="Linux 下工作环境配置" /><published>2017-10-16T00:00:00+08:00</published><updated>2017-10-16T00:00:00+08:00</updated><id>http://localhost:4000/2017/10/16/env-linux-work</id><content type="html" xml:base="http://localhost:4000/2017/10/16/env-linux-work/">&lt;h2 id=&quot;zsh-配置&quot;&gt;zsh 配置&lt;/h2&gt;
 
-&lt;h2 id=&quot;安装-zsh&quot;&gt;安装 zsh&lt;/h2&gt;
+&lt;h3 id=&quot;安装-zsh&quot;&gt;安装 zsh&lt;/h3&gt;
 &lt;p&gt;官网：&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;zsh&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install zsh
 或
@@ -55,7 +55,7 @@ sudo apt-get install zsh
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chsh -s `which zsh`
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;安装-oh-my-zsh&quot;&gt;安装 oh-my-zsh&lt;/h2&gt;
+&lt;h3 id=&quot;安装-oh-my-zsh&quot;&gt;安装 oh-my-zsh&lt;/h3&gt;
 &lt;p&gt;直接从 git 上下载安装&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cd oh-my-zsh/tools
@@ -65,7 +65,7 @@ cd oh-my-zsh/tools
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;zsh-主题设置&quot;&gt;zsh 主题设置&lt;/h2&gt;
+&lt;h3 id=&quot;zsh-主题设置&quot;&gt;zsh 主题设置&lt;/h3&gt;
 &lt;p&gt;在 ~/.zshrc 下设置主题，默认就好&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ZSH_THEME=&quot;robbyrussell&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -74,18 +74,18 @@ cd oh-my-zsh/tools
 plugins=(git autojump extract d osx z)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;vim-with-lua-安装&quot;&gt;vim with lua 安装&lt;/h1&gt;
+&lt;h2 id=&quot;vim-with-lua-安装&quot;&gt;vim with lua 安装&lt;/h2&gt;
 
-&lt;h2 id=&quot;前置安装&quot;&gt;前置安装&lt;/h2&gt;
+&lt;h3 id=&quot;前置安装&quot;&gt;前置安装&lt;/h3&gt;
 
-&lt;h3 id=&quot;yum-安装&quot;&gt;yum 安装&lt;/h3&gt;
+&lt;h4 id=&quot;yum-安装&quot;&gt;yum 安装&lt;/h4&gt;
 &lt;p&gt;yum 安装 readline 和 ncurses&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum -y install readline-devel ncurses-devel
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;手动安装&quot;&gt;手动安装&lt;/h3&gt;
+&lt;h4 id=&quot;手动安装&quot;&gt;手动安装&lt;/h4&gt;
 
-&lt;h4 id=&quot;安装-ncurses&quot;&gt;安装 ncurses&lt;/h4&gt;
+&lt;h5 id=&quot;安装-ncurses&quot;&gt;安装 ncurses&lt;/h5&gt;
 &lt;p&gt;官网：&lt;a href=&quot;http://ftp.gnu.org/pub/gnu/ncurses/&quot;&gt;ncurses&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.0.tar.gz
 tar -xzvf ncurses-6.0.tar.gz
@@ -95,7 +95,7 @@ sudo make
 sudo make install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;安装-readline&quot;&gt;安装 readline&lt;/h4&gt;
+&lt;h5 id=&quot;安装-readline&quot;&gt;安装 readline&lt;/h5&gt;
 &lt;p&gt;官网：&lt;a href=&quot;http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html&quot;&gt;readline&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget ftp://ftp.cwru.edu/pub/bash/readline-7.0.tar.gz
 cd readline-7.0
@@ -104,7 +104,7 @@ sudo make
 sudo make install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;安装-lua&quot;&gt;安装 lua&lt;/h2&gt;
+&lt;h3 id=&quot;安装-lua&quot;&gt;安装 lua&lt;/h3&gt;
 &lt;p&gt;官网：&lt;a href=&quot;http://www.lua.org/download.html&quot;&gt;lua&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -R -O http://www.lua.org/ftp/lua-5.3.4.tar.gz
 tar zxf lua-5.3.4.tar.gz
@@ -113,7 +113,7 @@ make linux
 sudo make install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;安装-vim&quot;&gt;安装 vim&lt;/h2&gt;
+&lt;h3 id=&quot;安装-vim&quot;&gt;安装 vim&lt;/h3&gt;
 &lt;p&gt;官网：&lt;a href=&quot;https://vim.sourceforge.io/download.php&quot;&gt;vim&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 tar -xf  vim-7.4.tar.bz2
@@ -139,33 +139,33 @@ checking if link with -L/usr/local/lib -llua is sane... yes
 long pos = （long)luaL_optinteger(L, 3, 0);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;验证是否成功&quot;&gt;验证是否成功&lt;/h2&gt;
+&lt;h3 id=&quot;验证是否成功&quot;&gt;验证是否成功&lt;/h3&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim
 :version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;有 +lua 说明安装成功&lt;/p&gt;
 
-&lt;h1 id=&quot;spf13-vim-安装&quot;&gt;spf13-vim 安装&lt;/h1&gt;
+&lt;h2 id=&quot;spf13-vim-安装&quot;&gt;spf13-vim 安装&lt;/h2&gt;
 
-&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
+&lt;h3 id=&quot;简介&quot;&gt;简介&lt;/h3&gt;
 &lt;p&gt;官网：&lt;a href=&quot;http://vim.spf13.com/&quot;&gt;spf13-vim&lt;/a&gt;
 github：&lt;a href=&quot;http://github.com/spf13/spf13-vim&quot;&gt;spf13-vim&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;前置&quot;&gt;前置&lt;/h2&gt;
+&lt;h3 id=&quot;前置&quot;&gt;前置&lt;/h3&gt;
 &lt;p&gt;TagToggle 依赖 ctags，首先要安装 ctags&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install ctags
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;安装&quot;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&quot;安装&quot;&gt;安装&lt;/h3&gt;
 &lt;p&gt;安装官网说明进行安装&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl https://j.mp/spf13-vim3 -L &amp;gt; spf13-vim.sh &amp;amp;&amp;amp; sh spf13-vim.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;安装-blade&quot;&gt;安装 blade&lt;/h1&gt;
-&lt;h2 id=&quot;简介-1&quot;&gt;简介&lt;/h2&gt;
+&lt;h2 id=&quot;安装-blade&quot;&gt;安装 blade&lt;/h2&gt;
+&lt;h3 id=&quot;简介-1&quot;&gt;简介&lt;/h3&gt;
 &lt;p&gt;官网：&lt;a href=&quot;https://github.com/chen3feng/typhoon-blade&quot;&gt;blade&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;前置-1&quot;&gt;前置&lt;/h2&gt;
+&lt;h3 id=&quot;前置-1&quot;&gt;前置&lt;/h3&gt;
 &lt;p&gt;依赖 scons，官网：&lt;a href=&quot;https://sourceforge.net/projects/scons/files/scons&quot;&gt;scons&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python setup.py install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -175,7 +175,7 @@ github：&lt;a href=&quot;http://github.com/spf13/spf13-vim&quot;&gt;spf13-vim&l
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install libstdc++-static
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;安装-1&quot;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&quot;安装-1&quot;&gt;安装&lt;/h3&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone 
 cd typhoon-blade
 ./install

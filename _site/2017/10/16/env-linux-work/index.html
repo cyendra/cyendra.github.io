@@ -26,10 +26,10 @@
 </div>
 
     <div class="main">
-        <h2> Linux 下工作环境配置 </h2>
-        <h1 id="zsh-配置">zsh 配置</h1>
+        <h1> Linux 下工作环境配置 </h1>
+        <h2 id="zsh-配置">zsh 配置</h2>
 
-<h2 id="安装-zsh">安装 zsh</h2>
+<h3 id="安装-zsh">安装 zsh</h3>
 <p>官网：<a href="https://github.com/robbyrussell/oh-my-zsh">zsh</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install zsh
 或
@@ -39,7 +39,7 @@ sudo apt-get install zsh
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chsh -s `which zsh`
 </code></pre></div></div>
 
-<h2 id="安装-oh-my-zsh">安装 oh-my-zsh</h2>
+<h3 id="安装-oh-my-zsh">安装 oh-my-zsh</h3>
 <p>直接从 git 上下载安装</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cd oh-my-zsh/tools
@@ -49,7 +49,7 @@ cd oh-my-zsh/tools
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 </code></pre></div></div>
 
-<h2 id="zsh-主题设置">zsh 主题设置</h2>
+<h3 id="zsh-主题设置">zsh 主题设置</h3>
 <p>在 ~/.zshrc 下设置主题，默认就好</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ZSH_THEME="robbyrussell"
 </code></pre></div></div>
@@ -58,18 +58,18 @@ cd oh-my-zsh/tools
 plugins=(git autojump extract d osx z)
 </code></pre></div></div>
 
-<h1 id="vim-with-lua-安装">vim with lua 安装</h1>
+<h2 id="vim-with-lua-安装">vim with lua 安装</h2>
 
-<h2 id="前置安装">前置安装</h2>
+<h3 id="前置安装">前置安装</h3>
 
-<h3 id="yum-安装">yum 安装</h3>
+<h4 id="yum-安装">yum 安装</h4>
 <p>yum 安装 readline 和 ncurses</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum -y install readline-devel ncurses-devel
 </code></pre></div></div>
 
-<h3 id="手动安装">手动安装</h3>
+<h4 id="手动安装">手动安装</h4>
 
-<h4 id="安装-ncurses">安装 ncurses</h4>
+<h5 id="安装-ncurses">安装 ncurses</h5>
 <p>官网：<a href="http://ftp.gnu.org/pub/gnu/ncurses/">ncurses</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.0.tar.gz
 tar -xzvf ncurses-6.0.tar.gz
@@ -79,7 +79,7 @@ sudo make
 sudo make install
 </code></pre></div></div>
 
-<h4 id="安装-readline">安装 readline</h4>
+<h5 id="安装-readline">安装 readline</h5>
 <p>官网：<a href="http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html">readline</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget ftp://ftp.cwru.edu/pub/bash/readline-7.0.tar.gz
 cd readline-7.0
@@ -88,7 +88,7 @@ sudo make
 sudo make install
 </code></pre></div></div>
 
-<h2 id="安装-lua">安装 lua</h2>
+<h3 id="安装-lua">安装 lua</h3>
 <p>官网：<a href="http://www.lua.org/download.html">lua</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -R -O http://www.lua.org/ftp/lua-5.3.4.tar.gz
 tar zxf lua-5.3.4.tar.gz
@@ -97,7 +97,7 @@ make linux
 sudo make install
 </code></pre></div></div>
 
-<h2 id="安装-vim">安装 vim</h2>
+<h3 id="安装-vim">安装 vim</h3>
 <p>官网：<a href="https://vim.sourceforge.io/download.php">vim</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 tar -xf  vim-7.4.tar.bz2
@@ -123,33 +123,33 @@ checking if link with -L/usr/local/lib -llua is sane... yes
 long pos = （long)luaL_optinteger(L, 3, 0);
 </code></pre></div></div>
 
-<h2 id="验证是否成功">验证是否成功</h2>
+<h3 id="验证是否成功">验证是否成功</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim
 :version
 </code></pre></div></div>
 <p>有 +lua 说明安装成功</p>
 
-<h1 id="spf13-vim-安装">spf13-vim 安装</h1>
+<h2 id="spf13-vim-安装">spf13-vim 安装</h2>
 
-<h2 id="简介">简介</h2>
+<h3 id="简介">简介</h3>
 <p>官网：<a href="http://vim.spf13.com/">spf13-vim</a>
 github：<a href="http://github.com/spf13/spf13-vim">spf13-vim</a></p>
 
-<h2 id="前置">前置</h2>
+<h3 id="前置">前置</h3>
 <p>TagToggle 依赖 ctags，首先要安装 ctags</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install ctags
 </code></pre></div></div>
 
-<h2 id="安装">安装</h2>
+<h3 id="安装">安装</h3>
 <p>安装官网说明进行安装</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://j.mp/spf13-vim3 -L &gt; spf13-vim.sh &amp;&amp; sh spf13-vim.sh
 </code></pre></div></div>
 
-<h1 id="安装-blade">安装 blade</h1>
-<h2 id="简介-1">简介</h2>
+<h2 id="安装-blade">安装 blade</h2>
+<h3 id="简介-1">简介</h3>
 <p>官网：<a href="https://github.com/chen3feng/typhoon-blade">blade</a></p>
 
-<h2 id="前置-1">前置</h2>
+<h3 id="前置-1">前置</h3>
 <p>依赖 scons，官网：<a href="https://sourceforge.net/projects/scons/files/scons">scons</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python setup.py install
 </code></pre></div></div>
@@ -159,7 +159,7 @@ github：<a href="http://github.com/spf13/spf13-vim">spf13-vim</a></p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install libstdc++-static
 </code></pre></div></div>
 
-<h2 id="安装-1">安装</h2>
+<h3 id="安装-1">安装</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone 
 cd typhoon-blade
 ./install
