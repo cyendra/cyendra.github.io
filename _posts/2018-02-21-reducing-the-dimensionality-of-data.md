@@ -16,8 +16,10 @@ Hinton在06年发表在Science，是深度学习爆发前的里程碑成果，�
 
 ### 正文
 提出了降维方法主成成分分析的非线性推广，自编码网络由编码器、解码器组成。用链式规则（反向传播）可以优化权重，但多隐层网络初始权重大导致局部极小值、初始权重小梯度消失导致不可训练。本文介绍了一种一次训练一层的预训练方法。  
-预训练是通过对比散度contrastive divergence，CD训练受限玻尔兹曼机RBM，这里不太熟悉暂时跳过，总之就是通过CD-1算法逐层训练。
-预训练Pretrain之后式Unrolling过程，将encoder的W^T构造为decoder还原输入。之后Fine-tuning过程用SGD、BP微调参数。目标函数是交叉熵。  
+![Image](/images/826216-20151224171545249-1217238367.png)
+  
+预训练是通过对比散度contrastive divergence，CD训练受限玻尔兹曼机RBM，这里不太熟悉暂时跳过，总之就是通过CD-1算法逐层训练。  
+预训练Pretrain之后是Unrolling过程，将encoder的W^T构造为decoder还原输入。之后Fine-tuning过程用SGD、BP微调参数。目标函数是交叉熵。  
 最后通过多个数据对比autoencoder与PCA效果。将输出特征降维成2维后，可以明显发现autoencoder的数据分布线性可分。
 
 ## 感悟
